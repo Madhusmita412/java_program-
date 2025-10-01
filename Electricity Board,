@@ -1,0 +1,33 @@
+
+
+import java.util.Scanner;
+
+public class ElectricityBilling {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Area (Rural/Urban): ");
+        String area = sc.next();
+
+        System.out.print("Enter Units Consumed: ");
+        int units = sc.nextInt();
+
+        boolean isRural = area.equalsIgnoreCase("Rural");
+        boolean subsidy = (isRural && units < 100);
+        boolean surcharge = (!isRural || units > 500);
+
+        if (subsidy) {
+            System.out.println("Customer is eligible for Subsidy.");
+        } else {
+            System.out.println("Customer is NOT eligible for Subsidy.");
+        }
+
+        if (surcharge) {
+            System.out.println("Customer has to pay SURCHARGE.");
+        } else {
+            System.out.println("No Surcharge.");
+        }
+
+        sc.close();
+    }
+}
