@@ -1,0 +1,85 @@
+// Write a Java program using nested if conditions to calculate the baggage charge based on:
+
+// 1 .Travel Class
+
+// 2.Passenger Type (Student / Senior Citizen / Normal)
+
+// 3.Age
+
+// 4 .Total Baggage Weight
+
+
+// Test Case 01 :
+
+// Input :
+// Class = Economy  
+// Passenger = Student  
+// Age = 22  
+// Baggage Weight = 28 kg  
+
+// Output :
+// Baggage Charge = 0
+
+// Test Case 02 :
+
+// Input :
+// Class = Business  
+// Passenger = Senior Citizen  
+// Age = 65  
+// Baggage Weight = 40 kg  
+
+// Output :
+// Baggage Charge = 2500
+
+
+import java.util.Scanner;
+
+public class BaggageChargeCalculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Travel Class (Economy/Business): ");
+        String travelClass = sc.next();
+
+        System.out.print("Enter Passenger Type (Student/Senior/Normal): ");
+        String passengerType = sc.next();
+
+        System.out.print("Enter Age: ");
+        int age = sc.nextInt();
+
+        System.out.print("Enter Baggage Weight (kg): ");
+        int baggageWeight = sc.nextInt();
+
+        int charge = 0;
+
+        if (travelClass.equalsIgnoreCase("Economy")) {
+            if (passengerType.equalsIgnoreCase("Student") && age >= 18 && age <= 25) {
+                if (baggageWeight <= 30) {
+                    charge = 0;
+                } else {
+                    charge = (baggageWeight - 30) * 100;
+                }
+            } else {
+                if (baggageWeight > 20) {
+                    charge = (baggageWeight - 20) * 100;
+                }
+            }
+        } else if (travelClass.equalsIgnoreCase("Business")) {
+            if (passengerType.equalsIgnoreCase("Senior") && age >= 60) {
+                if (baggageWeight <= 40) {
+                    charge = 0;
+                } else {
+                    charge = (baggageWeight - 40) * 100;
+                }
+            } else {
+                if (baggageWeight > 35) {
+                    charge = (baggageWeight - 35) * 100;
+                }
+            }
+        }
+
+        System.out.println("Baggage Charge = " + charge);
+
+        sc.close();
+    }
+}
