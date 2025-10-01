@@ -1,0 +1,47 @@
+// 1.If the score is 90 to 100 → Grade "A+" and remark "Excellent"
+
+// 2.If the score is 80 to 89 → Grade "A" and remark "Very Good"
+
+// 3.If the score is 70 to 79 → Grade "B" and remark "Good"
+
+// 4.If the score is 60 to 69 → Grade "C" and remark "Average"
+
+// 5.If the score is 50 to 59 → Grade "D" and remark "Below Average"
+
+// 6.If the score is below 50 → Grade "F" and remark "Fail"
+
+// 7.If the score is invalid (less than 0 or greater than 100) → Print "Invalid Score"
+
+
+import java.util.*;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int marks ;
+        System.out.print("Enter the Marks Obtained: ");
+        marks = sc.nextInt();
+        sc.close();
+        if(marks >= 90 && marks <= 100){
+            System.out.println("Grade: A+ " + "Remarks : Excellent .");
+        }
+        else if (marks >=80 && marks <=89){
+            System.out.println("Grade: A " + "Remarks : Very Good .");
+        }
+        else if (marks >=70 && marks <=79){
+            System.out.println("Grade: B " + "Remarks : Good .");
+        }
+        else if (marks >=60 && marks <=69){
+            System.out.println("Grade: C " + "Remarks : Average .");
+        }
+        else if (marks >=50 && marks <=59){
+            System.out.println("Grade: D " + "Remarks : Below Average .");
+        }
+        else if ( marks <50){
+            System.out.println("Grade: F " + "Remarks : Fail .");
+        }
+        else if (marks >=100 || marks <=0){
+            System.out.println("Invalid Score");
+        }
+    }
+}
