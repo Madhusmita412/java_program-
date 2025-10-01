@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+class factorial{
+    int factorial(int num){
+        int factorial = 1;
+        for(int i = 1 ; i<=num ; i++){
+            factorial *= i;
+        }
+        return factorial;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        int m;
+        int n;
+        int fact =1 ;
+        int sum = 0;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the value of M: ");
+        m = sc.nextInt();
+        System.out.print("Enter th Value of N :");
+        n = sc.nextInt();
+        sc.close();
+        factorial factorial = new factorial();
+        if( m > n){
+            System.out.println("0");
+        }
+        else{
+            for( int i = m; i <=n ; i++){
+                sum += factorial.factorial(i);
+            }
+        }
+        System.out.println(sum);
+    }
+}
