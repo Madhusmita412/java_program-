@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc  = new Scanner(System.in);
+        System.out.print("Enter The dayOfWeek: ");
+        String day = sc.nextLine();
+
+        System.out.print("Enter the Bonus Salary: ");
+        double salary = sc.nextDouble();
+        double day_salary = salary/30;
+        sc.close();
+
+        switch(day){
+            case "Monday":
+                System.out.println("The daily salary of the " + day + "is : $"+ day_salary);
+                break;
+            case "Tuesday":
+                System.out.println("The daily salary of the " + day + "is : $"+ (day_salary+10));
+                break;
+            case "Wednesday":
+                System.out.println("The daily salary of the " + day + "is : $"+ (day_salary));
+                break;
+            case "Thursday":
+                System.out.println("The daily salary of the " + day + "is : $"+ (day_salary + 5));
+                break;
+            case "Friday":
+                System.out.println("The daily salary of the " + day + "is : $"+ (day_salary));
+                break;
+            case "Saturday":
+                System.out.println("The daily salary of the " + day + "is : $"+ (day_salary + 15));
+                break;
+            case "Sunday":
+                System.out.println("The daily salary of + " +day + "is none.");
+                break;
+        }
+
+    }
+}
