@@ -1,0 +1,27 @@
+//Given  two integers M and N, calculate the product  of all odd integers from M and N inclusive .if M is greater than N , return 1 or display an appropriate message
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int m ;
+        int n ;
+        int prodcut = 1;
+        System.out.print("Enter the Value of M:");
+        m = sc.nextInt();
+        System.out.print("Enter the Value of N:");
+        n = sc.nextInt();
+        if ( m > n ){
+            System.out.println("1");
+        }
+        else{
+            for (int i =m ; i<= n ; i++ ){
+            if( i %2 != 0){
+                prodcut *=i ;
+            }
+        }
+        }
+        System.out.println("Product of all odd integers from M: "+ m + " to N: "+ n + " is: " + prodcut);
+    }
+}
