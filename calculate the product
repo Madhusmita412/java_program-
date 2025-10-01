@@ -1,0 +1,25 @@
+//// Given  two integers M and N, calculate the product  of all integers from M and N inclusive.if M is greater than N ,
+return 1 or display an appropriate message
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the Value of M: ");
+        int m = sc.nextInt();
+        System.out.print("ENter the value of N: ");
+        int n = sc.nextInt();
+        sc.close();
+        int product = 1; 
+        if(m > n ){
+            System.out.println("1");
+        }
+        else{
+            for(int i = m ; i <= n ; i++){
+                product *= i;
+            }
+        }
+        System.out.println("Product of all the integers from M: "+ m + " to N: "+ n +" is: " + product);
+    }
+}
