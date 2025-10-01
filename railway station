@@ -1,0 +1,59 @@
+import java.util.*; 
+
+class TrainDetails{
+    String TimeDepart = "10:30 AM" ;
+    String TimeArrival = "5:00 PM "; 
+    double Fare = 1235.6; 
+    int PlatformNumber = 9 ;  
+    boolean SeatAvailability = true ;
+}
+
+class infoDisplay extends TrainDetails{
+    int switcher ;
+
+    infoDisplay (int switcher) {
+        this.switcher = switcher;
+    }
+
+    public void displayinfo(){
+        switch (switcher) {
+            case 1:
+                System.out.println("Train will Departs at: "+ TimeDepart + " and will Arrive at: "+ TimeArrival);
+                break;
+            
+            case 2: 
+                System.out.println("The Fare of this Train is: "+ Fare);
+                break; 
+            
+            case 3:
+                if(!SeatAvailability){
+                System.out.println("The seat is not Avaiable.");
+                }
+                else{
+                    System.out.println("The Seat is Avaiable.");
+                }
+                break ; 
+            
+            case 4: 
+                System.out.println("THe platform Number is: "+ PlatformNumber);
+                break; 
+            
+            case 5: 
+                System.out.println("Thank you! Have a safe journey");
+                break ; 
+            default:
+                break;
+        }
+    }
+}
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter 1->Train TImings , 2-> Train Fare Details , 3-> Seat Availability, 4-> Plaftorm Number , 5-> Exit ");
+        int switcher = sc.nextInt();
+        infoDisplay train = new infoDisplay(switcher);
+        sc.close();
+        train.displayinfo();
+    }
+}
