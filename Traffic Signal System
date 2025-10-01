@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter The Singal Color As Red/ Yellow / Green");
+        String color = sc.nextLine();
+        String lowercolor = color.toLowerCase();
+        sc.close();
+        switch (lowercolor) {
+            case "red":
+                System.out.println("Stop");
+                break;
+            case "yellow" :
+                System.out.println("Get Ready");
+                break;
+            case "green":
+                System.out.println("GO");
+                break;
+            default:
+                System.out.println("Invalid Signal Color");
+                break;
+        }
+    }
+}
