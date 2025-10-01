@@ -1,0 +1,15 @@
+public class Main{
+    public static void main(String[] args){
+       int First_Num = 25 ; 
+       int Second_Num = 40 ; 
+       if(First_Num < Second_Num){
+        System.out.println("The Largest number is "+ Second_Num);
+       }
+       else if(Second_Num == First_Num){ 
+        System.out.println("Both numbers are equal");
+       }
+       else {
+        System.out.println("The largest Number is " + First_Num);
+       }
+    }
+}
