@@ -1,0 +1,35 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        System.out.print("Enter you Age: ");
+        Scanner sc = new Scanner(System.in);
+        int age = sc.nextInt();
+        int group; 
+        if(age == 0 && age <= 12){
+            group = 1;
+        }
+        else if (age == 13 && age <= 19 ){
+            group = 2;
+        }
+        else if (age == 20 && age <= 59){
+            group = 3;
+        }
+        else{
+            group = 4;
+        }
+        switch (group) {
+            case 1:
+                System.out.println("Child");
+                break;
+            case 2:
+                System.out.println("Teengaer");
+                break;
+            case 3:
+                System.out.println("Adult");
+                break;
+            case 4:
+                System.out.println("Senior");
+                break;
+        }
+    }
+}
