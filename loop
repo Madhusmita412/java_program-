@@ -1,0 +1,51 @@
+// Printing all the elements of string 
+
+public class Main{
+    public static void main(String[] args){
+        int [] num={10,20,30,40,50} ;
+        int sum = 0 ;
+        for(int number: num){
+            sum += number ;
+        }
+        System.out.println("Sum of the number: " + sum );
+    }
+}
+
+//for loop
+
+public class Main{
+    public static void main(String[] args){
+        int [] num={10,20,30,40,50} ;
+        for(int i=0 ; i< num.length; i++) {
+            System.out.print(" "+num[i]);
+        }
+    }
+}
+
+
+// sum of all the numbers in string
+
+public class Main{
+    public static void main(String[] args){
+        int [] num={10,20,30,40,50} ;
+        int sum = 0 ;
+        for(int number: num){
+            sum += number ;
+        }
+        System.out.println("Sum of the number: " + sum );
+    }
+}
+
+// using for loop 
+
+public class Main{
+    public static void main(String[] args ){
+        int [] num ={10,20,30,40,50} ;
+        int sum = 0;
+        for(int i=0; i< num.length; i++ ){
+            sum += num[i];
+        }
+        System.out.println("The sum of the all number in the string is :"+ sum);
+    }
+}
+
