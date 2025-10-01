@@ -1,0 +1,44 @@
+import java.util.*;
+
+class person{
+    private double Balance = 50000;
+
+    public double getBalance(){
+        return this.Balance;
+    }
+
+    public void setBalance(double withdrawal){
+        this.Balance -= withdrawal;
+    }
+
+    public void displayinfo(){
+        System.out.println(this.Balance);
+    }
+
+}
+
+class ATM {
+    public void withdraw(person Person, double withdrawl){
+        if(Person.getBalance() >= withdrawl ){
+        Person.setBalance(withdrawl);
+        System.out.println("Transaction succesfull.");
+        System.out.println("WithdrwalAmount: " + withdrawl + " Remaininig Balance: "+ Person.getBalance());
+        
+        }
+        else {
+            System.out.println("Insufficient Balance");
+        }
+    }
+}
+
+public class Main{
+    public static void main(String[] args) {
+        System.out.println("Enter the Winthdrwal Amount: ");
+        Scanner sc = new Scanner(System.in);
+        double withdrwal_Amount = sc.nextDouble();
+        sc.close();
+        person p1 = new person();
+        ATM atm = new ATM();
+        atm.withdraw(p1,withdrwal_Amount);
+    }
+}
