@@ -1,0 +1,76 @@
+import java.util.*;
+
+abstract class vehicle{
+    int NumberOfAxle ;
+
+    vehicle(int NumberOfAxle){
+        this.NumberOfAxle = NumberOfAxle;
+    }
+
+    abstract int getbaseToll();
+
+    int CalculateToll(){
+        int toll = getbaseToll();
+        if(NumberOfAxle > 3){
+            toll += 50;
+        }
+        return toll;
+    }
+}
+
+class car extends vehicle{
+    car(int NumberOfAxle){
+        super(NumberOfAxle);
+    }
+    int getbaseToll(){
+        return 100;
+    }
+}
+
+class bus extends vehicle{
+    bus(int NumberOfAxle){
+        super(NumberOfAxle);
+    }
+    int getbaseToll(){
+        return 200;
+    }
+}
+
+class truck extends vehicle{
+    truck(int NumberOfAxle){
+        super(NumberOfAxle);
+    }
+    int getbaseToll(){
+        return 300;
+    }
+}
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Vehicle type (Car/Bus?Truck): ");
+        String VechileType = sc.nextLine();
+        System.out.print("Enter the number of Axle: ");
+        int NumberOfAxle = sc.nextInt();
+
+        vehicle vehicle = null ;
+        switch (VechileType.toLowerCase()) {
+            case "car" :
+                vehicle = new car(NumberOfAxle);
+                break;
+                
+            case "bus":
+                vehicle = new bus(NumberOfAxle);
+                break;
+            
+            case "truck" :
+                vehicle = new truck(NumberOfAxle);
+                break;
+            default:
+                System.out.println("Invaild Vehicle Type");
+                return;
+        }
+        System.out.println("Toll Charges : " + vehicle.CalculateToll() );
+    }
+}
