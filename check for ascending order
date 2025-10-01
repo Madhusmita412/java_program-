@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class AscendingDigits {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+
+        String str = String.valueOf(num);
+        boolean ascending = true;
+
+        for (int i = 1; i < str.length(); i++) {
+            if (str.charAt(i) < str.charAt(i - 1)) {
+                ascending = false;
+                break;
+            }
+        }
+
+        if (ascending) {
+            System.out.println("Digits are in ascending order");
+        } else {
+            System.out.println("Digits are not in ascending order");
+        }
+
+        sc.close();
+    }
+}
