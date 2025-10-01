@@ -1,0 +1,20 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+       int UnitsConsumed;
+       System.out.print("Enter the Consumend units: ");
+       Scanner sc = new Scanner(System.in);
+       UnitsConsumed = sc.nextInt();
+       sc.close();
+       
+       if(UnitsConsumed <= 100){
+        System.out.println("The Total bill for the Consumed Units is: "+ (UnitsConsumed * 5));
+       }
+       else if ( UnitsConsumed <= 200){
+       System.out.println("The Total bill for the Consumed Units is : "+ (((100)*5)+(UnitsConsumed-100)*7));
+    }
+    else {
+        System.out.println("The Total BIll for the Consumed Units is : "+ (((UnitsConsumed-200)*10) + (100 *7) + (100 * 5)));
+    }
+ }
+}
