@@ -1,0 +1,29 @@
+
+
+import java.util.Scanner;
+
+public class SwapFirstLastDigit {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        String numStr = sc.next();
+
+      
+        if (numStr.length() == 1) {
+            System.out.println("Output : " + numStr);
+        } else {
+            char first = numStr.charAt(0);
+            char last = numStr.charAt(numStr.length() - 1);
+
+           
+            String swapped = last 
+                           + numStr.substring(1, numStr.length() - 1) 
+                           + first;
+
+            System.out.println("Output : " + swapped);
+        }
+
+        sc.close();
+    }
+}
