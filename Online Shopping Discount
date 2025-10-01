@@ -1,0 +1,25 @@
+import java.util.*;
+public class Main{
+    public static void main(String[] args) {
+        double PurchaseAmount; 
+        System.out.print("Enter the Purchased Amount: ");
+        Scanner sc = new Scanner(System.in);
+        PurchaseAmount = sc.nextDouble();
+
+        double DiscountAmount = 0;
+
+        if(PurchaseAmount >= 5000){
+            DiscountAmount = PurchaseAmount * 0.20 ;
+        }
+        else if(PurchaseAmount < 5000 && PurchaseAmount >= 2000){
+            DiscountAmount = PurchaseAmount *0.10;
+        }
+        else{
+            DiscountAmount = 0;
+        }
+        double FinalAmount = PurchaseAmount - DiscountAmount;
+        System.out.println("Amount Before Discount: "+ PurchaseAmount);
+        System.out.println("Discounted Amount : "+ DiscountAmount);
+        System.out.println("Final Amount After Discount is :"+ FinalAmount);
+    }
+}
