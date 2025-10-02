@@ -1,0 +1,37 @@
+public class Main {
+    public static void main(String[] args) {
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        String line = "";
+        if (sc.hasNextLine()) line = sc.nextLine().trim();
+        if (line.isEmpty()) { sc.close(); return; }
+
+        if (line.contains("[") && line.contains("]")) {
+            int l = line.indexOf('[');
+            int r = line.indexOf(']');
+            if (l >= 0 && r > l) line = line.substring(l+1, r);
+        }
+
+        if (line.contains("=")) {
+            String[] parts = line.split("=", 2);
+            line = parts[1].trim();
+        }
+
+        String[] tokens = line.split("[,\\s]+");
+        int even = 0, odd = 0;
+        for (String t : tokens) {
+            if (t == null) continue;
+            t = t.trim();
+            if (t.length() == 0) continue;
+            try {
+                int v = Integer.parseInt(t);
+                if ((v & 1) == 0) even++; else odd++;
+            } catch (NumberFormatException ex) {
+                // ignore non-integers
+            }
+        }
+
+        System.out.println("Even numbers count: " + even);
+        System.out.println("Odd numbers count: " + odd);
+        sc.close();
+    }
+}
