@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class Main {
+    	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Enter number of students: ");
+		int n = sc.nextInt();
+		double[] marks = new double[n];
+		System.out.println("Enter marks separated by space:");
+		for (int i = 0; i < n; i++) {
+			marks[i] = sc.nextDouble();
+		}
+
+		double max = Double.NEGATIVE_INFINITY;
+		double min = Double.POSITIVE_INFINITY;
+		double sum = 0;
+		int failed = 0;
+
+		for (double m : marks) {
+			if (m > max) max = m;
+			if (m < min) min = m;
+			sum += m;
+			if (m < 40) failed++;
+		}
+
+		double avg = sum / n;
+
+		System.out.println("Highest = " + (long)max);
+		System.out.println("Lowest = " + (long)min);
+		System.out.println(String.format("Average = %.1f", avg));
+		System.out.println("Failed Students = " + failed);
+
+		sc.close();
+	}
+ }
