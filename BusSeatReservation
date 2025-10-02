@@ -1,0 +1,82 @@
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter number of seats in the bus (N): ");
+		if (!sc.hasNextInt()) { System.out.println("Invalid input"); sc.close(); return; }
+		int N = sc.nextInt();
+		sc.nextLine();
+
+		if (N <= 0) {
+			System.out.println("Number of seats must be positive");
+			sc.close();
+			return;
+		}
+
+		String[] seats = new String[N];
+		for (int i = 0; i < N; i++) seats[i] = "Empty";
+
+		while (true) {
+			System.out.println();
+			System.out.println("Menu Options:");
+			System.out.println("1. View all seats");
+			System.out.println("2. Book a seat");
+			System.out.println("3. Cancel a booking");
+			System.out.println("4. Exit");
+			System.out.print("Enter your choice: ");
+
+			if (!sc.hasNextInt()) { System.out.println("Invalid Choice"); sc.nextLine(); continue; }
+			int choice = sc.nextInt();
+			sc.nextLine();
+
+			switch (choice) {
+				case 1:
+					System.out.println("Seat status (1 to " + N + "):");
+					for (int i = 0; i < N; i++) {
+						System.out.println((i+1) + ". " + seats[i]);
+					}
+					break;
+
+				case 2:
+					System.out.print("Enter seat number to book (1-" + N + "): ");
+					if (!sc.hasNextInt()) { System.out.println("Invalid Choice"); sc.nextLine(); break; }
+					int sBook = sc.nextInt();
+					sc.nextLine();
+					if (sBook < 1 || sBook > N) { System.out.println("Invalid Choice"); break; }
+					if (!seats[sBook-1].equals("Empty")) {
+						System.out.println("Seat already booked");
+					} else {
+						System.out.print("Enter passenger name: ");
+						String name = sc.nextLine().trim();
+						if (name.isEmpty()) { System.out.println("Invalid Choice"); }
+						else { seats[sBook-1] = name; System.out.println("Seat " + sBook + " booked for " + name); }
+					}
+					break;
+
+				case 3:
+					System.out.print("Enter seat number to cancel (1-" + N + "): ");
+					if (!sc.hasNextInt()) { System.out.println("Invalid Choice"); sc.nextLine(); break; }
+					int sCancel = sc.nextInt();
+					sc.nextLine();
+					if (sCancel < 1 || sCancel > N) { System.out.println("Invalid Choice"); break; }
+					if (seats[sCancel-1].equals("Empty")) {
+						System.out.println("Seat is already empty");
+					} else {
+						System.out.println("Booking cancelled for seat " + sCancel + " (" + seats[sCancel-1] + ")");
+						seats[sCancel-1] = "Empty";
+					}
+					break;
+
+				case 4:
+					System.out.println("Exiting. Goodbye!");
+					sc.close();
+					return;
+
+				default:
+					System.out.println("Invalid Choice");
+					break;
+			}
+		}
+	}
+}
