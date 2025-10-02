@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Enter the value of N: ");
+        int n = sc.nextInt();
+        
+        System.out.println("Prime numbers between 1 to " + n + " are:");
+        
+        // Check each number from 2 to N
+        for(int i = 2; i <= n; i++) {
+            boolean isPrime = true;
+            
+            // Check if current number i is prime
+            for(int j = 2; j <= Math.sqrt(i); j++) {
+                if(i % j == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            
+            // If the number is prime, print it
+            if(isPrime) {
+                System.out.print(i + " ");
+            }
+        }
+        
+        System.out.println(); // New line after all prime numbers
+        sc.close();
+    }
+}
