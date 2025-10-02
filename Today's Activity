@@ -1,0 +1,21 @@
+import java.util.Scanner;
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the day number (1-7): ");
+		int day = sc.nextInt();
+		String activity;
+		switch(day) {
+			case 1: activity = "Math Class"; break;
+			case 2: activity = "Science Class"; break;
+			case 3: activity = "English Class"; break;
+			case 4: activity = "Sports"; break;
+			case 5: activity = "Art & Craft"; break;
+			case 6: activity = "Field Trip"; break;
+			case 7: activity = "Holiday"; break;
+			default: activity = "Invalid day"; break;
+		}
+		System.out.println("Today's Activity: " + activity);
+		sc.close();
+	}
+}
