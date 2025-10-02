@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Is Rahul free? (true/false): ");
+        boolean rahulFree = sc.nextBoolean();
+        
+        System.out.print("Is Sneha free? (true/false): ");
+        boolean snehaFree = sc.nextBoolean();
+        
+        System.out.print("Is Arjun free? (true/false): ");
+        boolean arjunFree = sc.nextBoolean();
+        
+       
+        int freeCount = 0;
+        if(rahulFree) freeCount++;
+        if(snehaFree) freeCount++;
+        if(arjunFree) freeCount++;
+        
+        System.out.println("\n--- Weekend Plan Decision ---");
+        
+        // Decision based on number of free friends
+        if(freeCount == 3) {
+            System.out.println("All three friends are free!");
+            System.out.println("Plan: Going on a ROAD TRIP! 🚗");
+        } 
+        else if(freeCount == 2) {
+            System.out.println("Two friends are free! They will go to a cricket match.");
+            
+            // Show which friends are free
+            System.out.print("Free friends: ");
+            if(rahulFree) System.out.print("Rahul ");
+            if(snehaFree) System.out.print("Sneha ");
+            if(arjunFree) System.out.print("Arjun ");
+            System.out.println();
+        } 
+        else if(freeCount == 1) {
+            System.out.println("Only one friend is free!");
+            System.out.print("Free friend: ");
+            if(rahulFree) System.out.print("Rahul");
+            if(snehaFree) System.out.print("Sneha");
+            if(arjunFree) System.out.print("Arjun");
+            System.out.println("\nPlan: Playing VIDEO GAMES at home! 🎮");
+        } 
+        else {
+            System.out.println("No one is free! Everyone will sleep at home.");
+        }
+        
+        sc.close();
+    }
+}
