@@ -1,0 +1,47 @@
+import java.util.Scanner;
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String line = "";
+		if (sc.hasNextLine()) line = sc.nextLine().trim();
+    
+		if (line.isEmpty()) { sc.close(); return; }
+    
+		if (line.contains("[") && line.contains("]")) {
+			int l = line.indexOf('[');
+			int r = line.indexOf(']');
+			if (l >= 0 && r > l) line = line.substring(l+1, r);
+		}
+
+		if (line.contains("=")) {
+			String[] parts = line.split("=", 2);
+			line = parts[1].trim();
+		}
+
+		String[] tokens = line.split("[,\\s]+");
+		java.util.List<String> elems = new java.util.ArrayList<>();
+		for (String t : tokens) {
+			if (t == null) continue;
+			t = t.trim();
+			if (t.length() == 0) continue;
+			// skip non-numeric tokens if any
+			try { Integer.parseInt(t); elems.add(t); } catch (NumberFormatException ex) { }
+		}
+
+		System.out.println("Array in reverse order:");
+		if (elems.isEmpty()) {
+			sc.close();
+			return;
+		}
+
+		StringBuilder out = new StringBuilder();
+		for (int i = elems.size() - 1; i >= 0; i--) {
+			out.append(elems.get(i));
+			if (i != 0) out.append(" ");
+		}
+
+		System.out.println(out.toString());
+		sc.close();
+	}
+}
+
