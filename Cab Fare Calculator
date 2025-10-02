@@ -1,0 +1,34 @@
+import java.util.Scanner; 
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter distance in km: ");
+		double d = sc.nextDouble();
+
+		if (d < 0) {
+			System.out.println("Invalid distance");
+			sc.close();
+			return;
+		}
+
+		double fare = 0;
+		if (d <= 5) {
+			fare = 100; // flat
+		} else if (d <= 15) {
+			fare = 100 + (d - 5) * 10;
+		} else {
+			// up to 15 handled above: 100 + 10*(15-5) = 100 + 100 = 200 for first 15 km
+			fare = 100 + (10 * 10) + (d - 15) * 8; // = 200 + (d-15)*8
+		}
+
+		// Print as whole rupees if it's effectively integer, otherwise show one decimal
+		if (fare == Math.floor(fare)) {
+			System.out.println("Fare = ₹" + (long) fare);
+		} else {
+			System.out.println(String.format("Fare = ₹%.1f", fare));
+		}
+
+		sc.close();
+	}
+}
