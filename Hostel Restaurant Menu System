@@ -1,0 +1,91 @@
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("===== Welcome to Hotel Restaurant =====\n");
+		System.out.println("Menu:\n");
+		System.out.println("1. Starters");
+		System.out.println("2. Main Course");
+		System.out.println("3. Desserts");
+		System.out.print("Enter your choice (1-3): ");
+
+		if (!sc.hasNextInt()) {
+			System.out.println("Invalid Category Choice!");
+			sc.close();
+			return;
+		}
+
+		int category = sc.nextInt();
+		sc.nextLine(); // consume newline
+
+		int itemChoice = -1;
+		int price = 0;
+
+		switch (category) {
+			case 1:
+				System.out.println("Starters Menu:");
+				System.out.println("1. Spring Rolls - ₹120");
+				System.out.println("2. Garlic Bread - ₹90");
+				System.out.print("Enter your choice: ");
+				if (sc.hasNextInt()) itemChoice = sc.nextInt();
+				else { System.out.println("Invalid Choice"); sc.close(); return; }
+				switch (itemChoice) {
+					case 1: price = 120; break;
+					case 2: price = 90; break;
+					default: System.out.println("Invalid Choice"); sc.close(); return;
+				}
+				break;
+
+			case 2:
+				System.out.println("Main Course Menu:");
+				System.out.println("1. Paneer Butter Masala - ₹200");
+				System.out.println("2. Veg Biryani - ₹180");
+				System.out.print("Enter your choice: ");
+				if (sc.hasNextInt()) itemChoice = sc.nextInt();
+				else { System.out.println("Invalid Choice"); sc.close(); return; }
+				switch (itemChoice) {
+					case 1: price = 200; break;
+					case 2: price = 180; break;
+					default: System.out.println("Invalid Choice"); sc.close(); return;
+				}
+				break;
+
+			case 3:
+				System.out.println("Desserts Menu:");
+				System.out.println("1. Gulab Jamun - ₹70");
+				System.out.println("2. Ice Cream - ₹120");
+				System.out.print("Enter your choice: ");
+				if (sc.hasNextInt()) itemChoice = sc.nextInt();
+				else { System.out.println("Invalid Choice"); sc.close(); return; }
+				switch (itemChoice) {
+					case 1: price = 70; break;
+					case 2: price = 120; break;
+					default: System.out.println("Invalid Choice"); sc.close(); return;
+				}
+				break;
+
+			default:
+				System.out.println("Invalid Category Choice!");
+				sc.close();
+				return;
+		}
+
+		System.out.print("Enter quantity: ");
+		if (!sc.hasNextInt()) {
+			System.out.println("Invalid Choice");
+			sc.close();
+			return;
+		}
+		int qty = sc.nextInt();
+		int total = price * qty;
+
+		System.out.println("================================");
+		System.out.println("Thank you for your order!");
+		System.out.println("Your Total Bill: ₹" + total);
+		System.out.println("================================");
+
+		sc.close();
+	}
+}
