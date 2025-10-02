@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String color = "";
+		if (sc.hasNextLine()) {
+			color = sc.nextLine().trim();
+		}
+		sc.close();
+
+		if (color == null || color.isEmpty()) {
+			System.out.println("Invalid Input");
+			return;
+		}
+
+		switch (color.toLowerCase()) {
+			case "red":
+				System.out.println("Stop");
+				break;
+			case "yellow":
+				System.out.println("Ready");
+				break;
+			case "green":
+				System.out.println("Go");
+				break;
+			default:
+				System.out.println("Invalid Input");
+				break;
+		}
+	}
+}
