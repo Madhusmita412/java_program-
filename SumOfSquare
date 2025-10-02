@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		if (!sc.hasNextInt()) { sc.close(); return; }
+		int M = sc.nextInt();
+		if (!sc.hasNextInt()) { sc.close(); return; }
+		int N = sc.nextInt();
+
+		long sum = 0;
+		for (int i = M; i <= N; i++) {
+			long sq = (long) i * i;
+			sum += sq;
+		}
+
+		if (sum > N) {
+			System.out.println(-1);
+		} else {
+			if ((sum % 2) == 0) {
+				System.out.println(sum / 2);
+			} else {
+				System.out.println(sum);
+			}
+		}       
+		sc.close();
+	}   
+}
