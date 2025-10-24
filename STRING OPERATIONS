@@ -1,0 +1,74 @@
+import java.util.Scanner;
+
+public class StringSet01 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // 1. Find length of a string
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
+        System.out.println("Length of the string: " + str.length());
+
+        // 2. Convert string to uppercase and lowercase
+        System.out.println("Uppercase: " + str.toUpperCase());
+        System.out.println("Lowercase: " + str.toLowerCase());
+
+        // 3. Check if both strings are equal
+        System.out.print("Enter another string to compare: ");
+        String str2 = sc.nextLine();
+        if (str.equals(str2))
+            System.out.println("Both strings are equal");
+        else
+            System.out.println("Strings are not equal");
+
+        // 4. Count words in a string
+        String[] words = str.trim().split("\\s+");
+        System.out.println("Number of words: " + words.length);
+
+        // 5. Check if a string contains a word
+        System.out.print("Enter word to search: ");
+        String word = sc.nextLine();
+        if (str.toLowerCase().contains(word.toLowerCase()))
+            System.out.println("Word found in the string");
+        else
+            System.out.println("Word not found");
+
+        // 6. Concatenate two strings
+        System.out.println("Concatenated string: " + str.concat(" " + str2));
+
+        // 7. Reverse a string
+        String rev = "";
+        for (int i = str.length() - 1; i >= 0; i--)
+            rev += str.charAt(i);
+        System.out.println("Reversed string: " + rev);
+
+        // 8. Check palindrome
+        if (str.equalsIgnoreCase(rev))
+            System.out.println("The string is a palindrome");
+        else
+            System.out.println("The string is not a palindrome");
+
+        // 9. Count uppercase and lowercase letters
+        int upper = 0, lower = 0;
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (Character.isUpperCase(ch))
+                upper++;
+            else if (Character.isLowerCase(ch))
+                lower++;
+        }
+        System.out.println("Uppercase letters: " + upper);
+        System.out.println("Lowercase letters: " + lower);
+
+        // 10. Count special characters
+        int special = 0;
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (!Character.isLetterOrDigit(ch) && !Character.isWhitespace(ch))
+                special++;
+        }
+        System.out.println("Special characters: " + special);
+
+        sc.close();
+    }
+}
