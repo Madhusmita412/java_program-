@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class WordSearch {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String inputString = sc.nextLine();
+        System.out.print("Enter word to search: ");
+        String word = sc.nextLine();
+        if (inputString.toLowerCase().contains(word.toLowerCase())) {
+            System.out.println("Word found!");
+        } else {
+            System.out.println("Word not found!");
+        }
+        sc.close();
+    }
+}
