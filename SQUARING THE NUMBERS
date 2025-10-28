@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class SquareDigits {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int number = sc.nextInt();
+        String numStr = String.valueOf(number);
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < numStr.length(); i++) {
+            char ch = numStr.charAt(i);
+            if (Character.isDigit(ch)) {
+                int digit = Character.getNumericValue(ch);
+                int square = digit * digit;
+                result.append(square);
+            } else {
+                result.append(ch);
+            }
+        }
+        System.out.println("Output: " + result);
+        sc.close();
+    }
+}
